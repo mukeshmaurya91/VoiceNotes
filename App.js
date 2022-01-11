@@ -12,7 +12,6 @@ const Stack = createNativeStackNavigator();
 
 export default App = () => {
   return (
-    // <SafeAreaView>
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Home">
             <Stack.Screen
@@ -20,9 +19,12 @@ export default App = () => {
               component={HomeScreen}
               options={{title:'Features'}}
             />
+            <Stack.Screen 
+             name="Example"
+             component={ExampleScreen}
+            />
           </Stack.Navigator>
         </NavigationContainer>
-    // </SafeAreaView>
   );
 }
 
