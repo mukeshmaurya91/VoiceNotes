@@ -1,27 +1,30 @@
-import React from 'react';
 import { StyleSheet, Text, View } from "react-native";
+import React, { Component } from 'react';
 
-
-const SplashScreen = ({navigation}) => {
-
-    return (
-        <View style={Styles.container}>
+export default class SplashScreen extends Component {
+    render() {
+        return (
+            <View style={Styles.container}>
             <Text>Splash Screen</Text>
         </View>
-    );
-}
+        );
+    }
+    goToNextScreen(navigation){
+        setTimeout(()=>{
+            navigation.navigate('Home');
+        },2000);
+    }
 
-function goToNextScreen(navigation){
-    navigation.navigate('Home')
+    componentDidMount(){
+        goToNextScreen();
+    }
 }
 
 const Styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#6a51ae',
         alignItems: 'center',
         justifyContent: 'center',
     },
 });
-
-export default SplashScreen;

@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from "react-native";
 
 
-const DetailScreen = ({navigation}) => {
+export default DetailScreen = ({navigation}) => {
 
     return (
         <View style={Styles.container}>
@@ -19,5 +19,3 @@ const Styles = StyleSheet.create({
         justifyContent: 'center',
     },
 });
-
-export default DetailScreen;
