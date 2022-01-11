@@ -1,29 +1,28 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, StatusBar, SafeAreaView, Pressable } from "react-native";
+import { StyleSheet, Text, View, StatusBar, SafeAreaView, TouchableOpacity } from "react-native";
 import CardView from '../custom/CardView';
 
-
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = props => {
     return (
         <SafeAreaView style={Styles.fullScreenContainer}>
             <StatusBar backgroundColor="#fff" barStyle='dark-content' />
             <View style={Styles.contentContainer}>
                 <View style={Styles.contentRow}>
-                    <View style={{width:'48%',height: 100}}>
+                    <View style={Styles.common}>
                         <TouchableOpacity
-                            onPress={() => { navigation.navigate('Example') }}>
+                            onPress={() => { props.navigation.navigate('Example') }}>
                             <CardView style={Styles.featureCard1}>
                                 <Text style={Styles.text}>Feature 1</Text>
                             </CardView>
                         </TouchableOpacity>
                     </View>
-                    <View style={{width:'48%',height: 100, marginStart:16}}>
-                    <Pressable
-                        onPress={() => { navigation.navigate('Example') }}>
+                    <View style={[Styles.common,{marginStart:16}]}>
+                    <TouchableOpacity
+                        onPress={() => { props.navigation.navigate('Example') }}>
                         <CardView style={Styles.featureCard2}>
                             <Text style={Styles.text}>Feature 2</Text>
                         </CardView>
-                    </Pressable>
+                    </TouchableOpacity>
                     </View>
                 </View>
             </View>
@@ -47,6 +46,10 @@ const Styles = StyleSheet.create({
         color: 'black',
         fontSize: 18,
         fontWeight: 'bold',
+    },
+    common:{
+        width:'49%',
+        height: 100
     },
     featureCard1: {
         backgroundColor: '#C6EEBC',
