@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import { StyleSheet, Text, View, StatusBar, SafeAreaView, TouchableOpacity } from "react-native";
 import CardView from '../custom/CardView';
 
@@ -10,9 +10,9 @@ const HomeScreen = props => {
                 <View style={Styles.contentRow}>
                     <View style={Styles.common}>
                         <TouchableOpacity
-                            onPress={() => { props.navigation.navigate('Example') }}>
+                            onPress={() => { props.navigation.navigate('ExampleApiCall') }}>
                             <CardView style={Styles.featureCard1}>
-                                <Text style={Styles.text}>Feature 1</Text>
+                                <Text style={Styles.text}>Simple Fetch</Text>
                             </CardView>
                         </TouchableOpacity>
                     </View>
@@ -21,6 +21,24 @@ const HomeScreen = props => {
                         onPress={() => { props.navigation.navigate('Example') }}>
                         <CardView style={Styles.featureCard2}>
                             <Text style={Styles.text}>Feature 2</Text>
+                        </CardView>
+                    </TouchableOpacity>
+                    </View>
+                </View>
+                <View style={Styles.contentRow}>
+                    <View style={Styles.common}>
+                        <TouchableOpacity
+                            onPress={() => { props.navigation.navigate('Example') }}>
+                            <CardView style={Styles.featureCard1}>
+                                <Text style={Styles.text}>Feature 3</Text>
+                            </CardView>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={[Styles.common,{marginStart:16}]}>
+                    <TouchableOpacity
+                        onPress={() => { props.navigation.navigate('Example') }}>
+                        <CardView style={Styles.featureCard2}>
+                            <Text style={Styles.text}>Feature 4</Text>
                         </CardView>
                     </TouchableOpacity>
                     </View>
@@ -36,7 +54,9 @@ const Styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     contentContainer: {
+        flex:1,
         padding: 20,
+        flexDirection: 'column'
     },
     contentRow: {
         flexDirection: 'row',

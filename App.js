@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DetailScreen from './src/view/detail/DetailScreen';
 import HomeScreen from './src/view/home/HomeScreen';
-import ExampleScreen from './src/view/example/ExampleUi';
+import ExampleApiCallUi from './src/view/example/ExampleApiCallUi';
 import SplashScreen from './src/view/splash/SplashScreen';
 
 
@@ -20,8 +20,12 @@ export default App = () => {
               options={{title:'Features'}}
             />
             <Stack.Screen 
-             name="Example"
-             component={ExampleScreen}
+             name="ExampleApiCall"
+             component={ExampleApiCallUi}
+            />
+              <Stack.Screen 
+             name="Detail"
+             component={DetailScreen}
             />
           </Stack.Navigator>
         </NavigationContainer>
