@@ -6,6 +6,7 @@ import DetailScreen from './src/view/detail/DetailScreen';
 import HomeScreen from './src/view/home/HomeScreen';
 import ExampleApiCallUi from './src/view/example/ExampleApiCallUi';
 import SplashScreen from './src/view/splash/SplashScreen';
+import LoginScreen from './src/view/login/LoginScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -26,6 +27,10 @@ export default App = () => {
               <Stack.Screen 
              name="Detail"
              component={DetailScreen}
+            />
+             <Stack.Screen 
+             name="Login"
+             component={LoginScreen}
             />
           </Stack.Navigator>
         </NavigationContainer>

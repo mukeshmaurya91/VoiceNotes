@@ -18,9 +18,9 @@ const HomeScreen = props => {
                     </View>
                     <View style={[Styles.common,{marginStart:16}]}>
                     <TouchableOpacity
-                        onPress={() => { props.navigation.navigate('Example') }}>
+                        onPress={() => { props.navigation.navigate('Login') }}>
                         <CardView style={Styles.featureCard2}>
-                            <Text style={Styles.text}>Feature 2</Text>
+                            <Text style={Styles.text}>Login</Text>
                         </CardView>
                     </TouchableOpacity>
                     </View>
