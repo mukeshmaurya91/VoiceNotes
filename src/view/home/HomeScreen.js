@@ -1,44 +1,44 @@
-import React,{ useState } from 'react';
+import React from 'react';
 import { StyleSheet, Text, View, StatusBar, SafeAreaView, TouchableOpacity } from "react-native";
 import CardView from '../custom/CardView';
 
 const HomeScreen = props => {
     return (
-        <SafeAreaView style={Styles.fullScreenContainer}>
+        <SafeAreaView style={styles.fullScreenContainer}>
             <StatusBar backgroundColor="#fff" barStyle='dark-content' />
-            <View style={Styles.contentContainer}>
-                <View style={Styles.contentRow}>
-                    <View style={Styles.common}>
+            <View style={styles.contentContainer}>
+                <View style={styles.contentRow}>
+                    <View style={styles.common}>
                         <TouchableOpacity
                             onPress={() => { props.navigation.navigate('ExampleApiCall') }}>
-                            <CardView style={Styles.featureCard1}>
-                                <Text style={Styles.text}>Simple Fetch</Text>
+                            <CardView style={styles.featureCard1}>
+                                <Text style={styles.text}>Simple Fetch</Text>
                             </CardView>
                         </TouchableOpacity>
                     </View>
-                    <View style={[Styles.common,{marginStart:16}]}>
+                    <View style={[styles.common,{marginStart:16}]}>
                     <TouchableOpacity
                         onPress={() => { props.navigation.navigate('Login') }}>
-                        <CardView style={Styles.featureCard2}>
-                            <Text style={Styles.text}>Login</Text>
+                        <CardView style={styles.featureCard2}>
+                            <Text style={styles.text}>Login</Text>
                         </CardView>
                     </TouchableOpacity>
                     </View>
                 </View>
-                <View style={Styles.contentRow}>
-                    <View style={Styles.common}>
+                <View style={styles.contentRow}>
+                    <View style={styles.common}>
                         <TouchableOpacity
-                            onPress={() => { props.navigation.navigate('Example') }}>
-                            <CardView style={Styles.featureCard1}>
-                                <Text style={Styles.text}>Feature 3</Text>
+                            onPress={() => { props.navigation.navigate('ImageSearch') }}>
+                            <CardView style={styles.featureCard1}>
+                                <Text style={styles.text}>Image Search</Text>
                             </CardView>
                         </TouchableOpacity>
                     </View>
-                    <View style={[Styles.common,{marginStart:16}]}>
+                    <View style={[styles.common,{marginStart:16}]}>
                     <TouchableOpacity
                         onPress={() => { props.navigation.navigate('Example') }}>
-                        <CardView style={Styles.featureCard2}>
-                            <Text style={Styles.text}>Feature 4</Text>
+                        <CardView style={styles.featureCard2}>
+                            <Text style={styles.text}>Feature 4</Text>
                         </CardView>
                     </TouchableOpacity>
                     </View>
@@ -48,7 +48,7 @@ const HomeScreen = props => {
     );
 }
 
-const Styles = StyleSheet.create({
+const styles = StyleSheet.create({
     fullScreenContainer: {
         flex: 1,
         backgroundColor: '#fff',

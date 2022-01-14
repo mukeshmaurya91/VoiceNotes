@@ -5,19 +5,19 @@ const LoginScreen = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     return (
-        <SafeAreaView style={Styles.fullScreenContainer}>
+        <SafeAreaView style={styles.fullScreenContainer}>
             <StatusBar backgroundColor="#fff" barStyle='dark-content' />
-            <View style={Styles.contentContainer}>
-                <Text style={Styles.loginTitle}>Login</Text>
+            <View style={styles.contentContainer}>
+                <Text style={styles.loginTitle}>Login</Text>
                 <TextInput
-                    style={Styles.input}
+                    style={styles.input}
                     value={email}
                     onChangeText={setEmail}
                     placeholder='Email'
                     keyboardType='email-address'
                 />
                 <TextInput
-                    style={Styles.input}
+                    style={styles.input}
                     value={password}
                     onChangeText={setPassword}
                     placeholder='Password'
@@ -32,7 +32,7 @@ const LoginScreen = () => {
 
 export default LoginScreen
 
-const Styles = StyleSheet.create({
+const styles = StyleSheet.create({
     fullScreenContainer: {
         flex: 1,
         backgroundColor: '#fff',

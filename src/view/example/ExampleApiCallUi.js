@@ -28,18 +28,18 @@ const ExampleApiCallUi = () => {
       } 
     }, []);
     return (
-        <SafeAreaView style={Styles.fullScreenContainer}>
-        <View style={Styles.fullScreenContainer}>
+        <SafeAreaView style={styles.fullScreenContainer}>
+        <View style={styles.fullScreenContainer}>
       {isLoading ? <ActivityIndicator/> : (
         <FlatList
           data={data}
           keyExtractor={({ id }, index) => id}
           renderItem={({ item }) => (
-              <CardView style={Styles.cardSpacing}>
-                  <View style={Styles.cardItemRow}>
-                  <Image style={Styles.avatar} source={{uri:item.avatar}}/>
-                  <View style={Styles.textSpacing}>
-            <Text style={Styles.textName}>{item.first_name} {item.last_name}</Text>
+              <CardView style={styles.cardSpacing}>
+                  <View style={styles.cardItemRow}>
+                  <Image style={styles.avatar} source={{uri:item.avatar}}/>
+                  <View style={styles.textSpacing}>
+            <Text style={styles.textName}>{item.first_name} {item.last_name}</Text>
             <Text>{item.email}</Text>
             </View>
             </View>
@@ -52,7 +52,7 @@ const ExampleApiCallUi = () => {
     );
 }
 
-const Styles = StyleSheet.create({
+const styles = StyleSheet.create({
     fullScreenContainer: {
         flex: 1,
         backgroundColor: '#fff',
