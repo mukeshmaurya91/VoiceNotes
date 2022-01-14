@@ -1,19 +1,31 @@
 import React,{ useState,useEffect } from 'react';
 import { StyleSheet,SafeAreaView, Text, FlatList,View, ActivityIndicator,Image } from "react-native";
 import CardView from '../custom/CardView';
+import axios from 'axios';
 
-
+const API_URL='https://reqres.in/api/users';
 const ExampleApiCallUi = () => {
+
+  //Toggle boolean for fetch or axios use
+    const fromFetch=false;
 
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch('https://reqres.in/api/users')
+      if (fromFetch) {
+        fetch(API_URL)
         .then((response)=>response.json())
         .then((json)=>setData(json.data))
         .catch((error) => console.error(error))
       .finally(() => setLoading(false));
+      }else{
+        axios.get(API_URL)
+        .then((response)=>response.data)
+        .then((json)=>setData(json.data))
+        .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+      } 
     }, []);
     return (
         <SafeAreaView style={Styles.fullScreenContainer}>

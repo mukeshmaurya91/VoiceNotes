@@ -47,13 +47,17 @@ const Styles = StyleSheet.create({
         fontWeight: 'bold',
         marginTop:30,
         marginBottom:30,
+        justifyContent: 'center',
         alignContent:'center',
-        alignItems:'center'
+        alignItems: 'center',
     },
     input: {
         height: 40,
         margin: 12,
+        backgroundColor:'#eaeaea',
+        borderColor:'#aeaeae',
         borderWidth: 1,
         padding: 10,
+        borderRadius:20
     },
 })
