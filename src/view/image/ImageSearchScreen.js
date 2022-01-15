@@ -3,12 +3,17 @@ import { Button, SafeAreaView, StyleSheet, Text, TextInput, View, Image, Activit
 import CardView from '../custom/CardView';
 import axios from 'axios';
 
-const url = 'https://pixabay.com/api/?key=9140105-4c2e6a4eadeb7f0ace651bc11&image_type=photo'
+var url = 'https://pixabay.com/api/?key=9140105-4c2e6a4eadeb7f0ace651bc11&image_type=photo'
 const ImageSearchScreen = () => {
     const [searchText, setSearchText] = useState('');
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
-    const doSearch = () => {
+    const doSearch = (searchText) => {
+        console.log("mk>> searchText:" + searchText)
+        if (searchText!='') {
+            url=url+encodeURIComponent('&q='+searchText);
+        }
+        console.log("mk>> url:" + url)
         axios.get(url)
             .then((response) => response.data)
             .then((json) => setData(json.hits))
@@ -20,20 +25,21 @@ const ImageSearchScreen = () => {
         doSearch();
     }, [])
     console.log("mk>>" + JSON.stringify(data))
-    return (
-        <SafeAreaView>
-            <View style={styles.contentContainer}>
-                <CardView style={styles.searchContainer}>
+    const renderSearch = (
+<CardView style={styles.searchContainer}>
                     <TextInput
                         style={styles.searchInput}
                         placeholder='Search'
                         onChangeText={setSearchText}
                     />
-                    <Button title='Search' onPress={doSearch} />
+                    <Button title='Search' onPress={doSearch(searchText)} />
                 </CardView>
-            </View>
+    );
+    return (
+        <SafeAreaView>
             {isLoading ? <ActivityIndicator /> : (
                 <FlatList
+                ListHeaderComponent={renderSearch}
                     data={data}
                     keyExtractor={({ id }, index) => id}
                     renderItem={({ item }) => (
@@ -57,17 +63,21 @@ const styles = StyleSheet.create({
     },
     searchContainer: {
         flex: 1,
-        flexDirection: 'row',
+        marginTop: 8,
+        flexDirection:'row',
+        justifyContent:'space-between'
     },
     searchInput: {
         padding: 10,
-        width: '70%',
-        height: 24,
-        backgroundColor: '#aeaeae',
-        borderRadius: 8,
+        width: '75%',
+        backgroundColor: '#eaeaea',
+        padding:10,
+        borderWidth:1,
+        borderRadius: 4,
     },
     submitButton: {
-
+        alignSelf:'center',
+        marginStart:16,
     },
     cardSpacing: {
         marginStart: 12,
