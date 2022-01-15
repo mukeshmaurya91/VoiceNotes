@@ -8,12 +8,13 @@ const ImageSearchScreen = () => {
     const [searchText, setSearchText] = useState('');
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
-    const doSearch = (searchText) => {
-        console.log("mk>> searchText:" + searchText)
+    const doSearch = (text) => {
+        setLoading(true);
+        console.log("mk>> searchText:" + text);
         if (searchText!='') {
-            url=url+encodeURIComponent('&q='+searchText);
+            url=url+'&q='+text;
         }
-        console.log("mk>> url:" + url)
+        console.log("mk>> url:" + url);
         axios.get(url)
             .then((response) => response.data)
             .then((json) => setData(json.hits))
@@ -22,7 +23,7 @@ const ImageSearchScreen = () => {
     }
 
     useEffect(() => {
-        doSearch();
+        doSearch('');
     }, [])
     console.log("mk>>" + JSON.stringify(data))
     const renderSearch = (
@@ -30,14 +31,14 @@ const ImageSearchScreen = () => {
                     <TextInput
                         style={styles.searchInput}
                         placeholder='Search'
-                        onChangeText={setSearchText}
+                        onChangeText={q=>setSearchText(q)}
                     />
-                    <Button title='Search' onPress={doSearch(searchText)} />
+                    <Button title='Search' onPress={()=>doSearch(searchText)} />
                 </CardView>
     );
     return (
         <SafeAreaView>
-            {isLoading ? <ActivityIndicator /> : (
+            {isLoading ? <ActivityIndicator size="large" color="#00ff00" /> : (
                 <FlatList
                 ListHeaderComponent={renderSearch}
                     data={data}
