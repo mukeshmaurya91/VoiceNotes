@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Button, SafeAreaView, StyleSheet, Text, TextInput, View, Image, ActivityIndicator, FlatList } from 'react-native'
+import { Button, SafeAreaView, StyleSheet, Text, 
+    TextInput, View, Image, ActivityIndicator, FlatList } from 'react-native'
 import CardView from '../custom/CardView';
 import axios from 'axios';
+import {IMAGE_API_KEY} from '@env';
 
-var url = 'https://pixabay.com/api/?key=9140105-4c2e6a4eadeb7f0ace651bc11&image_type=photo'
+var url = `https://pixabay.com/api/?key=${IMAGE_API_KEY}&image_type=photo`;
 const ImageSearchScreen = () => {
     const [searchText, setSearchText] = useState('');
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
     const doSearch = (text) => {
         setLoading(true);
-        console.log("mk>> searchText:" + text);
+        //console.log("mk>> searchText:" + text);
         if (searchText!='') {
             url=url+'&q='+text;
         }
@@ -25,7 +27,7 @@ const ImageSearchScreen = () => {
     useEffect(() => {
         doSearch('');
     }, [])
-    console.log("mk>>" + JSON.stringify(data))
+    //console.log("mk>>" + JSON.stringify(data))
     const renderSearch = (
 <CardView style={styles.searchContainer}>
                     <TextInput
