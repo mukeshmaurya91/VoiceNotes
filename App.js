@@ -8,6 +8,7 @@ import ExampleApiCallUi from './src/view/example/ExampleApiCallUi';
 import SplashScreen from './src/view/splash/SplashScreen';
 import LoginScreen from './src/view/login/LoginScreen';
 import ImageSearchScreen from './src/view/image/ImageSearchScreen';
+import ExampleFlexbox from './src/view/example/ExampleFlexbox';
 
 
 const Stack = createNativeStackNavigator();
@@ -37,6 +38,10 @@ export default App = () => {
         <Stack.Screen
           name="ImageSearch"
           component={ImageSearchScreen}
+        />
+         <Stack.Screen
+          name="FlexBoxExample"
+          component={ExampleFlexbox}
         />
       </Stack.Navigator>
     </NavigationContainer>

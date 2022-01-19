@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, SafeAreaView, StyleSheet, Text, 
-    TextInput, View, Image, ActivityIndicator, FlatList } from 'react-native'
+    TextInput, View, Image, 
+    ActivityIndicator, FlatList } from 'react-native'
 import CardView from '../custom/CardView';
 import axios from 'axios';
 import {IMAGE_API_KEY} from '@env';

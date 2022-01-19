@@ -36,9 +36,9 @@ const HomeScreen = props => {
                     </View>
                     <View style={[styles.common,{marginStart:16}]}>
                     <TouchableOpacity
-                        onPress={() => { props.navigation.navigate('Example') }}>
+                        onPress={() => { props.navigation.navigate('FlexBoxExample') }}>
                         <CardView style={styles.featureCard2}>
-                            <Text style={styles.text}>Feature 4</Text>
+                            <Text style={styles.text}>Flex Example</Text>
                         </CardView>
                     </TouchableOpacity>
                     </View>
