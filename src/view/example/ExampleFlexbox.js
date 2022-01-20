@@ -3,7 +3,6 @@ import { ScrollView, StyleSheet, Text, View } from 'react-native'
 
 const ExampleFlexbox = () => {
     return (
-        <ScrollView>
             <View style={styles.container}>
                 <View style={styles.firstRow}>
                     <Text style={[styles.commonStyle, styles.box1]}>Box 1</Text>
@@ -17,7 +16,6 @@ const ExampleFlexbox = () => {
                     <Text style={[styles.commonStyle, styles.box7]}>Box 7</Text>
                 </View>
             </View>
-        </ScrollView>
     )
 }
 
@@ -52,12 +50,10 @@ const styles = StyleSheet.create({
         color: 'white'
     },
     box4: {
-        flex: 1,
         backgroundColor: '#454545',
         color: 'white'
     },
     box5: {
-        flex: 1,
         backgroundColor: '#FFEB3B',
         color: 'black',
     },
